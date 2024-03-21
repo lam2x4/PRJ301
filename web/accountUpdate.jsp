@@ -164,6 +164,7 @@
                                         <li>Gender:<input type="text" name="gender" value="${a.gender}"/> <br/></li>
                                         <li>Address<input type="text" name="address" value="${a.address}"/> <br/></li>
                                         <li>Date of Birth<input type="Date" name="dob" value="${a.dob}"/> <br/></li>
+                                        <li>Admin:<input type="text" name="isAdmin" value="${a.isAdmin}"/> <br/></li>
 
                                     </ul>
                                     <input type="submit" value="Update" style="color:white; background: black;margin-left: 40px"/>

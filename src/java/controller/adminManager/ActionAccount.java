@@ -96,8 +96,9 @@ public class ActionAccount extends HttpServlet {
         String phone = request.getParameter("phone");
         String address = request.getParameter("address");
         String password=request.getParameter("password");
+        String isAdmin=request.getParameter("isAdmin");
         UserDAO a = new UserDAO();
-        User u = new User(email, password, name, gender, dob, phone, address, 0);   
+        User u = new User(email, password, name, gender, dob, phone, address, Integer.parseInt(isAdmin));   
         a.updateUser(u);   
         request.getRequestDispatcher("accountmanager").forward(request, response);
     }

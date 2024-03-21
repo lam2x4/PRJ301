@@ -116,7 +116,7 @@ public class UserDAO extends DBContext {
     }
 
     public void updateUser(User user) {
-        String sql = "update users set password=? , name=?,gender=?,dob=?,phone=?,address=?,isAdmin=0 where email=?";
+        String sql = "update users set password=? , name=?,gender=?,dob=?,phone=?,address=?,isAdmin=? where email=?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user.getPassword());
@@ -125,7 +125,8 @@ public class UserDAO extends DBContext {
             st.setDate(4, Date.valueOf(user.getDob()));
             st.setString(5, user.getPhone());
             st.setString(6, user.getAddress());
-            st.setString(7, user.getEmail());
+            st.setInt(7, user.getIsAdmin());
+            st.setString(8, user.getEmail());
             st.executeUpdate();
 
         } catch (SQLException e) {
@@ -196,7 +197,7 @@ public class UserDAO extends DBContext {
 
     public static void main(String[] args) {
         UserDAO d = new UserDAO();
-        
+
         User user = new User("hkt@gmail.com", "email", "email", "email", "2002-02-01", "email", "email", 0);
         d.updateUser(user);
 
