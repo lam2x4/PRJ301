@@ -139,7 +139,7 @@
                             <li><a href="profile"><i class="fa-solid fa-user"></i>Profile</a></li>
                             <li><a href="catetable"><i class="fa-solid fa-layer-group"></i>Category group</a></li>
                             <li class="active"><a href="productmanager"><i class="fa-brands fa-product-hunt"></i>Product</a></li>
-                            <li><a href="account"><i class="fa-brands fa-blogger"></i>Account</a></li>
+                            <li><a href="accountmanager"><i class="fa-brands fa-blogger"></i>Account</a></li>
                         </ul>
                     </div>
                 </div>

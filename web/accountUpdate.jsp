@@ -1,11 +1,5 @@
 
 
-<%-- 
-    Document   : checkout
-    Created on : Jul 13, 2022, 10:01:21 PM
-    Author     : ADMIN
---%>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -84,14 +78,13 @@
             }
 
             .cart-body{
-                padding: 10px 10px;
+                padding: 0px 10px;
             }
 
             .cart-body-item{
                 background: white;
                 padding: 1.25rem;
                 text-align: center;
-                border: solid 1px;
             }
 
             .cart-body-item p{
@@ -103,19 +96,31 @@
                 padding-bottom: 20px;
             }
 
-            .cart-body-item button{
-                background: white;
+            .form1{
+                padding-left: 50px;
+            }
+
+            .form1 ul >li{
+                padding: 20px 0;
+            }
+
+            .form1 ul >li input{
+                width: 100%;
+                border: none;
+            }
+            .card1{
+                width: 1000px;
+            }
+            .form1{
+                padding-right: 200px;
             }
             .active{
                 background: #F2F7F8;
                 color: #6AC5FA;
             }
-
-            table tr:hover{
-                background: #e9ecef;
-            }
         </style>
     </head>
+
     <body>
         <!-- Page Preloder -->
         <div id="preloder">
@@ -130,37 +135,42 @@
                     <div class="option">
                         <ul class="option-nav">
                             <li><a href="dashboard"><i class="fa-solid fa-chart-bar"></i>Dashboard</a></li>
-                            <li><a href="profile"><i class="fa-solid fa-user"></i>Profile</a></li>
+                            <li class="active"><a href="profile"><i class="fa-solid fa-user"></i>Profile</a></li>
                             <li><a href="catetable"><i class="fa-solid fa-layer-group"></i>Category group</a></li>
-                            <li class="active"><a href="productmanager"><i class="fa-brands fa-product-hunt"></i>Product</a></li>
-                            <li><a href="account"><i class="fa-brands fa-blogger"></i>Account</a></li>
+                            <li><a href="productmanager"><i class="fa-brands fa-product-hunt"></i>Product</a></li>
+                            <li><a href="accountmanager"><i class="fa-brands fa-blogger"></i>Account</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-10 container_content">
                     <div class="page-breadcrumb">
-                        <h4>Dashboard</h4>
+                        <h4>Profile</h4>
                         <div class="breadcrumb__links">
                             <a href="dashboard">Home</a>
                             <i class="fa-solid fa-angle-right"></i>
-                            <span>Product</span>
+                            <span>Profile</span>
                         </div>
                     </div>
                     <div class="container2">
-                        <c:set value="${requestScope.product}" var="p"/>
-                        <h1>Update Account</h1>
-                        <form action="update" method="post">
-                            <input type="text" name="id" value="${p.id}" hidden/>
-                            Account:<input type="text" name="name" value="${p.name}"/><br/>
-                            Password:<input type="text" name="name" value="${p.password}"/><br/>       
-                            Name:<input type="text" name="name" value="${p.name}"/><br/>                                                     
-                            Gender:<input type="text" name="name" value="${p.gender}"/><br/>                                                     
-                            Date of Birth:<input type="text" name="name" value="${p.dob}"/><br/>                                                     
-                            Phone:<input type="text" name="price" value="${p.phone}"/><br/>
-                            Address:<input type="text" name="quantity" value="${p.address}"/><br/>
-                            <input type="submit" value="Save"/>
-                        </form>
+                        <div class="card1">
+                            <div class="form1">
+                                <form action="actionaccount" method="post">
+                                    <c:set value="${requestScope.user}" var="a"/>
+                                    <ul>
+                                        <li>Account<input type="text" name="email" value="${a.email}"/> <br/></li>
+                                        <li>Password:<input type="text" name="password" value="${a.password}"/> <br/></li>
+                                        <li>Name:<input type="text" name="name" value="${a.name}"/> <br/></li>
+                                        <li>Phone:<input type="text" name="phone" value="${a.phone}"/> <br/></li>
+                                        <li>Gender:<input type="text" name="gender" value="${a.gender}"/> <br/></li>
+                                        <li>Address<input type="text" name="address" value="${a.address}"/> <br/></li>
+                                        <li>Date of Birth<input type="Date" name="dob" value="${a.dob}"/> <br/></li>
 
+                                    </ul>
+                                    <input type="submit" value="Update" style="color:white; background: black;margin-left: 40px"/>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -169,5 +179,3 @@
     </body>
 
 </html>
-
-

@@ -138,7 +138,7 @@
                             <li class="active"><a href="profile"><i class="fa-solid fa-user"></i>Profile</a></li>
                             <li><a href="catetable"><i class="fa-solid fa-layer-group"></i>Category group</a></li>
                             <li><a href="productmanager"><i class="fa-brands fa-product-hunt"></i>Product</a></li>
-                            <li><a href="account"><i class="fa-brands fa-blogger"></i>Account</a></li>
+                            <li><a href="accountmanager"><i class="fa-brands fa-blogger"></i>Account</a></li>
                         </ul>
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                     <div class="container2">
                         <div class="card1">
                             <div class="form1">
-                                <form action="profile" method="post">
+                                <form action="accountmanager" method="post">
                                     <c:set value="${sessionScope.account}" var="a"/>
                                     <ul>
                                         <li>Name:<input type="text" name="name" value="${a.name}"/> <br/></li>

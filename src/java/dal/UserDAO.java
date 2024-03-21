@@ -91,6 +91,50 @@ public class UserDAO extends DBContext {
         return -1;
     }
 
+    public User getUserByEmail(String email) {
+        String sql = "select * from Users where email = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, email);
+            ResultSet rs = st.executeQuery();
+            User user;
+            if (rs.next()) {
+                user = new User(email, rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8),
+                        rs.getInt(9));
+                return user;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public void updateUser(User user) {
+        String sql = "update users set password=? , name=?,gender=?,dob=?,phone=?,address=?,isAdmin=0 where email=?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, user.getPassword());
+            st.setString(2, user.getName());
+            st.setString(3, user.getGender());
+            st.setDate(4, Date.valueOf(user.getDob()));
+            st.setString(5, user.getPhone());
+            st.setString(6, user.getAddress());
+            st.setString(7, user.getEmail());
+            st.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e);
+
+        }
+
+    }
+
     //
     public User checkAdmin(String email, String p) {
         User u = check(email, p);
@@ -139,8 +183,22 @@ public class UserDAO extends DBContext {
         }
     }
 
+    public void deleteAccount(String email) {
+        String sql = "delete from Users where email = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, email);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
+
     public static void main(String[] args) {
         UserDAO d = new UserDAO();
+        
+        User user = new User("hkt@gmail.com", "email", "email", "email", "2002-02-01", "email", "email", 0);
+        d.updateUser(user);
 
     }
 }

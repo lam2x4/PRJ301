@@ -32,7 +32,7 @@
         <script type="text/javascript">
             function doDelete(id) {
                 if (confirm("Are U sure to delete product with id=" + id + " ?")) {
-                    window.location = "actionproduct?action=delete&id=" + id;
+                    window.location = "actionaccount?action=delete&id=" + id;
                 }
             }
         </script>
@@ -139,7 +139,7 @@
                             <li><a href="profile"><i class="fa-solid fa-user"></i>Profile</a></li>
                             <li><a href="catetable"><i class="fa-solid fa-layer-group"></i>Category group</a></li>
                             <li ><a href="productmanager"><i class="fa-brands fa-product-hunt"></i>Product</a></li>
-                            <li class="active"><a href="account"><i class="fa-brands fa-blogger"></i>Account</a></li>
+                            <li class="active"><a href="accountmanager"><i class="fa-brands fa-blogger"></i>Account</a></li>
                         </ul>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                     <div class="container2">
                         <center>
                             <h1>The list of accounts</h1>
-                            <a href="add">Add new</a>
+                           
                             <table  width='100%' style="background: white; "  >
                                 <tr style="border-bottom: 1px #e9ecef solid ; background: #e9ecef">
 
@@ -181,8 +181,8 @@
                                         <td>${p.address}</td>
                                         <td>${p.isAdmin}</td>
                                         <td style="width: 150px">
-                                            <button><a href="actionaccount?action=update&id=${id}">Update</a></button>
-                                            <button><a href="#" onclick="doDelete('${id}')">Delete</a></button>
+                                            <button><a href="actionaccount?action=update&id=${p.email}">Update</a></button>
+                                            <button><a href="#" onclick="doDelete('${p.email}')">Delete</a></button>
                                         </td>
                                     </tr>
                                 </c:forEach>

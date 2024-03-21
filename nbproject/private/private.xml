@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/AssisgnmentPRJ/web/updateProduct.jsp</file>
-            <file>file:/E:/AssisgnmentPRJ/src/java/controller/adminManager/ActionProductServlet.java</file>
+            <file>file:/E:/AssisgnmentPRJ/src/java/controller/adminManager/ActionAccount.java</file>
+            <file>file:/E:/AssisgnmentPRJ/src/java/controller/adminManager/AccountManager.java</file>
+            <file>file:/E:/AssisgnmentPRJ/web/accountUpdate.jsp</file>
+            <file>file:/E:/AssisgnmentPRJ/web/accountManager.jsp</file>
         </group>
     </open-files>
 </project-private>
